@@ -27,5 +27,3 @@ flowchart TD
     web_servers --> fanout_service --> news_feed_cache
 
     web_servers --> notification_service
-
-    B["fab:fa-twitter for peace"]
