@@ -18,8 +18,12 @@ flowchart TD
     
     news_feed_cache[\News Feed Cache/]
 
-    user --> load_balancer
+    subgraph Client
+        direction LR
+        user --> DNS(("DNS"))
+    end
 
+    user --> load_balancer
     load_balancer --> web_servers
 
     web_servers --> post_service --> post_cache --> post_db
@@ -27,3 +31,4 @@ flowchart TD
     web_servers --> fanout_service --> news_feed_cache
 
     web_servers --> notification_service
+``` 
